@@ -1,0 +1,72 @@
+[
+  {
+    "objectID": "report.html",
+    "href": "report.html",
+    "title": "Assignment05",
+    "section": "",
+    "text": "country\ninflation_rate\nexports_gdp_share\ngdp_growth_rate\ngdp_per_capita\nadult_literacy_rate\nprimary_school_enrolment_rate\neducation_expenditure_gdp_share\nmeasles_immunisation_rate\nhealth_expenditure_gdp_share\nincome_inequality\nunemployment_rate\nlife_expectancy\ntotal_population\n\n\n\n\n0\nAfghanistan\nNaN\n18.380042\n-6.240172\n352.603733\nNaN\nNaN\nNaN\n68.0\nNaN\nNaN\n14.100\n62.879\n41128771.0\n\n\n1\nAlbania\n6.725203\n37.395422\n4.856402\n6810.114041\n98.5\n95.606712\n2.74931\n86.0\nNaN\nNaN\n11.588\n76.833\n2777689.0\n\n\n2\nAlgeria\n9.265516\n31.446856\n3.600000\n5023.252932\nNaN\n108.343933\nNaN\n79.0\nNaN\nNaN\n12.437\n77.129\n44903225.0\n\n\n3\nAmerican Samoa\nNaN\n46.957520\n1.735016\n19673.390102\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\n44273.0\n\n\n4\nAndorra\nNaN\nNaN\n9.563798\n42350.697069\nNaN\n90.147346\n2.66623\n98.0\nNaN\nNaN\nNaN\nNaN\n79824.0"
+  },
+  {
+    "objectID": "report.html#data-and-methods",
+    "href": "report.html#data-and-methods",
+    "title": "Assignment05",
+    "section": "",
+    "text": "country\ninflation_rate\nexports_gdp_share\ngdp_growth_rate\ngdp_per_capita\nadult_literacy_rate\nprimary_school_enrolment_rate\neducation_expenditure_gdp_share\nmeasles_immunisation_rate\nhealth_expenditure_gdp_share\nincome_inequality\nunemployment_rate\nlife_expectancy\ntotal_population\n\n\n\n\n0\nAfghanistan\nNaN\n18.380042\n-6.240172\n352.603733\nNaN\nNaN\nNaN\n68.0\nNaN\nNaN\n14.100\n62.879\n41128771.0\n\n\n1\nAlbania\n6.725203\n37.395422\n4.856402\n6810.114041\n98.5\n95.606712\n2.74931\n86.0\nNaN\nNaN\n11.588\n76.833\n2777689.0\n\n\n2\nAlgeria\n9.265516\n31.446856\n3.600000\n5023.252932\nNaN\n108.343933\nNaN\n79.0\nNaN\nNaN\n12.437\n77.129\n44903225.0\n\n\n3\nAmerican Samoa\nNaN\n46.957520\n1.735016\n19673.390102\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\n44273.0\n\n\n4\nAndorra\nNaN\nNaN\n9.563798\n42350.697069\nNaN\n90.147346\n2.66623\n98.0\nNaN\nNaN\nNaN\nNaN\n79824.0"
+  },
+  {
+    "objectID": "report.html#exploratory-data-analysis-distribution-and-ranking",
+    "href": "report.html#exploratory-data-analysis-distribution-and-ranking",
+    "title": "Assignment05",
+    "section": "Exploratory Data Analysis: Distribution and Ranking",
+    "text": "Exploratory Data Analysis: Distribution and Ranking\n\n1️⃣ GDP per capita — Distribution\n\n\nMean: $20,346 | Median: $7,588 | 10th–90th pct: $1,000 – $53,383\n\n\n\n\n\n\n\n\n\n\nFigure 1: Distribution of GDP per capita across countries (2022).\n\n\n\n\n\nInterpretation.\nAs shown in Figure Figure 1, the distribution of GDP per capita in 2022 is highly right-skewed, with a mean of $20,346 and a median of $7,588. This large gap indicates that a few very high-income countries pull up the global average. Most countries lie between $1,000 and $53,000 (10th–90th percentile), showing that the majority of economies fall in low- to middle-income ranges.\n\n\n\n2️⃣ Life expectancy — Distribution\n\n\nMean: 72.4 years | Median: 73.5 years | 10th–90th pct: 61.4 – 82.2 years\n\n\n\n\n\n\n\n\n\n\nFigure 2: Distribution of life expectancy across countries (2022).\n\n\n\n\n\nInterpretation.\nFigure Figure 2 shows that life expectancy is centered around the mid-70s. In contrast with GDP per capita (Figure Figure 1), its distribution is much more symmetric, suggesting smaller inequality across countries in health outcomes.\n\n\n\n3️⃣ Inflation rate — Ranking\n\n\nGlobal average (sample): 12.49% | Average among the same 15: 12.48% | Count above global avg: 5/15\n\n\n\n\n\n\n\n\n\n\nFigure 3: Inflation rate (annual %, 2022) among 15 most populous countries.\n\n\n\n\n\nInterpretation.\nFigure Figure 2 shows that life expectancy is centered around the mid-70s. In contrast with GDP per capita (Figure Figure 1), its distribution is much more symmetric, suggesting smaller inequality across countries in health outcomes.\n\n\n\n4️⃣ Summary statistics table\n\n\n\n\nTable 1: Summary statistics for three analyzed indicators (2022).\n\n\n\n\n\n\n\n\n\n\ngdp_per_capita\nlife_expectancy\ninflation_rate\n\n\n\n\ncount\n203.00\n209.00\n169.00\n\n\nmean\n20345.71\n72.42\n12.49\n\n\nmedian\n7587.59\n73.51\n7.97\n\n\nstd\n31308.94\n7.71\n19.68\n\n\nmin\n259.03\n53.00\n-6.69\n\n\nmax\n240862.18\n85.38\n171.21\n\n\n\n\n\n\n\n\n\n\nReading Table Table 1.\n- GDP per capita and life expectancy show moderate spread.\n- Inflation has higher relative dispersion, confirming Figure Figure 3.\nData: World Development Indicators (Bank, 2024).\nDocument built with Quarto (Posit, PBC, 2025)."
+  },
+  {
+    "objectID": "slides.html#overview",
+    "href": "slides.html#overview",
+    "title": "Assignment05",
+    "section": "Overview",
+    "text": "Overview\n\nDataset: World Development Indicators (2022)\nFocus: distribution (GDP per capita, life expectancy) and ranking (inflation)\nMethods: Python (pandas, matplotlib) rendered with Quarto (Posit, PBC, 2025)\nSource attribution: WDI (Bank, 2024)"
+  },
+  {
+    "objectID": "slides.html#data-setup",
+    "href": "slides.html#data-setup",
+    "title": "Assignment05",
+    "section": "Data Setup",
+    "text": "Data Setup\n\n\nRows: 217, Columns: 14"
+  },
+  {
+    "objectID": "slides.html#gdp-per-capita-distribution",
+    "href": "slides.html#gdp-per-capita-distribution",
+    "title": "Assignment05",
+    "section": "GDP per Capita — Distribution",
+    "text": "GDP per Capita — Distribution\n\n\n\n\n\nDistribution of GDP per capita across countries (2022).\n\n\n\n\nNotes: Right-skewed distribution with a long upper tail."
+  },
+  {
+    "objectID": "slides.html#life-expectancy-distribution",
+    "href": "slides.html#life-expectancy-distribution",
+    "title": "Assignment05",
+    "section": "Life Expectancy — Distribution",
+    "text": "Life Expectancy — Distribution\n\n\n\n\n\nDistribution of life expectancy across countries (2022).\n\n\n\n\nNotes: Most countries cluster around the low-to-mid 70s."
+  },
+  {
+    "objectID": "slides.html#inflation-ranking-top-15-by-population",
+    "href": "slides.html#inflation-ranking-top-15-by-population",
+    "title": "Assignment05",
+    "section": "Inflation — Ranking (Top 15 by Population)",
+    "text": "Inflation — Ranking (Top 15 by Population)\n\n\n\n\n\nInflation rate (annual %, 2022) — 15 most populous countries.\n\n\n\n\nNotes. Wide spread across major economies."
+  },
+  {
+    "objectID": "slides.html#key-takeaways",
+    "href": "slides.html#key-takeaways",
+    "title": "Assignment05",
+    "section": "Key Takeaways",
+    "text": "Key Takeaways\n\nGDP per capita: highly right-skewed distribution (few very high-income countries).\nLife expectancy: tighter spread around ~70–75 years.\nInflation: substantial variation among the most populous economies."
+  },
+  {
+    "objectID": "slides.html#reference",
+    "href": "slides.html#reference",
+    "title": "Assignment05",
+    "section": "Reference",
+    "text": "Reference\n\nData: World Bank WDI (Bank, 2024)\nBuilt with Quarto (Reveal.js) (Posit, PBC, 2025)\n\n\n\n\n\nBank, T. W. (2024). World development indicators (WDI). https://databank.worldbank.org/source/world-development-indicators\n\n\nPosit, PBC. (2025). Quarto documentation. https://quarto.org/docs/"
+  }
+]

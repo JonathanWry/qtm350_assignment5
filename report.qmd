@@ -1,0 +1,139 @@
+---
+title: "Assignment05"
+author: "Jonathan Wang"
+date: "2025-10-06"
+format:
+  html: { toc: true }
+  pdf: { toc: true }
+bibliography: references.bib
+jupyter: python3
+execute:
+  echo: false
+---
+
+## Data and Methods
+
+```{python}
+import pandas as pd
+df = pd.read_csv("wdi.csv")   # <-- straight quotes, not “smart” quotes
+df.head(5)
+```
+
+## Exploratory Data Analysis: Distribution and Ranking
+
+
+```{python}
+import pandas as pd, matplotlib.pyplot as plt
+df = pd.read_csv("wdi.csv")
+df.columns = df.columns.str.lower()
+```
+
+### 1️⃣ GDP per capita — Distribution
+```{python}
+import pandas as pd, matplotlib.pyplot as plt
+gdp_vals = df["gdp_per_capita"].dropna()
+gdp_mean   = gdp_vals.mean()
+gdp_median = gdp_vals.median()
+gdp_p10    = gdp_vals.quantile(0.10)
+gdp_p90    = gdp_vals.quantile(0.90)
+print(f"Mean: ${gdp_mean:,.0f} | Median: ${gdp_median:,.0f} | 10th–90th pct: ${gdp_p10:,.0f} – ${gdp_p90:,.0f}")
+```
+
+```{python}
+#| label: fig-gdp-hist
+#| fig-cap: "Distribution of GDP per capita across countries (2022)."
+fig, ax = plt.subplots(figsize=(6,4))
+ax.hist(df["gdp_per_capita"].dropna(), bins=30)
+ax.set_title("GDP per Capita Distribution (2022)")
+ax.set_xlabel("GDP per Capita (US$)")
+ax.set_ylabel("Number of Countries")
+plt.tight_layout()
+```
+
+**Interpretation.**  
+As shown in Figure @fig-gdp-hist, the distribution of GDP per capita in 2022 is highly right-skewed, with a mean of $20,346 and a median of $7,588. This large gap indicates that a few very high-income countries pull up the global average. Most countries lie between $1,000 and $53,000 (10th–90th percentile), showing that the majority of economies fall in low- to middle-income ranges.
+
+---
+
+### 2️⃣ Life expectancy — Distribution
+```{python}
+life_vals  = df["life_expectancy"].dropna()
+life_mean  = life_vals.mean()
+life_median= life_vals.median()
+life_p10   = life_vals.quantile(0.10)
+life_p90   = life_vals.quantile(0.90)
+print(f"Mean: {life_mean:.1f} years | Median: {life_median:.1f} years | 10th–90th pct: {life_p10:.1f} – {life_p90:.1f} years")
+```
+
+```{python}
+#| label: fig-life-hist
+#| fig-cap: "Distribution of life expectancy across countries (2022)."
+fig, ax = plt.subplots(figsize=(6,4))
+ax.hist(df["life_expectancy"].dropna(), bins=20, color="lightgray", edgecolor="black")
+ax.set_title("Life Expectancy Distribution (2022)")
+ax.set_xlabel("Life Expectancy (years)")
+ax.set_ylabel("Number of Countries")
+plt.tight_layout()
+```
+
+**Interpretation.**  
+Figure @fig-life-hist shows that life expectancy is centered around the mid-70s. In contrast with GDP per capita (Figure @fig-gdp-hist), its distribution is much more symmetric, suggesting smaller inequality across countries in health outcomes.
+
+
+---
+
+### 3️⃣ Inflation rate — Ranking
+
+```{python}
+pop_col = "total_population"
+subset  = df[["country","inflation_rate", pop_col]].dropna()
+top15   = subset.sort_values(pop_col, ascending=False).head(15).copy()
+global_avg_infl = df["inflation_rate"].mean(skipna=True)
+top15_avg_infl  = top15["inflation_rate"].mean()
+above_cnt       = int((top15["inflation_rate"] > global_avg_infl).sum())
+
+print(
+  f"Global average (sample): {global_avg_infl:.2f}% | "
+  f"Average among the same 15: {top15_avg_infl:.2f}% | "
+  f"Count above global avg: {above_cnt}/15"
+)
+```
+
+```{python}
+#| label: fig-inflation-bar
+#| fig-cap: "Inflation rate (annual %, 2022) among 15 most populous countries."
+pop_col = "total_population"
+subset = df[["country","inflation_rate",pop_col]].dropna()
+top15 = subset.sort_values(pop_col, ascending=False).head(15)
+top15_sorted = top15.sort_values("inflation_rate", ascending=False)
+fig, ax = plt.subplots(figsize=(6,4))
+ax.barh(top15_sorted["country"], top15_sorted["inflation_rate"])
+ax.invert_yaxis()
+ax.set_xlabel("Inflation rate (annual %)")
+ax.set_title("Inflation (2022) — Top 15 by Population")
+plt.tight_layout()
+```
+
+**Interpretation.**  
+Figure @fig-life-hist shows that life expectancy is centered around the mid-70s. In contrast with GDP per capita (Figure @fig-gdp-hist), its distribution is much more symmetric, suggesting smaller inequality across countries in health outcomes.
+
+
+---
+
+### 4️⃣ Summary statistics table
+
+```{python}
+#| label: tbl-summary
+#| tbl-cap: "Summary statistics for three analyzed indicators (2022)."
+summary = df[["gdp_per_capita","life_expectancy","inflation_rate"]].agg(["count","mean","median","std","min","max"]).round(2)
+summary
+```
+
+**Reading Table @tbl-summary.**  
+- GDP per capita and life expectancy show moderate spread.  
+- Inflation has higher relative dispersion, confirming Figure @fig-inflation-bar.
+
+Data: World Development Indicators [@worldbank_wdi].  
+Document built with **Quarto** [@quarto_docs].
+
+

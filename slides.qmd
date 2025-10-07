@@ -1,0 +1,96 @@
+---
+title: "Assignment05"
+author: "Jonathan Wang"
+date: "2025-10-06"
+format:
+  revealjs:
+    theme: [simple, serif]   # custom theme
+    transition: fade         # transition effect
+    slide-number: true
+    chalkboard: false
+bibliography: references.bib
+jupyter: python3
+execute:
+  echo: false                # hide code in slides too
+---
+
+## Overview
+
+- Dataset: World Development Indicators (2022)
+- Focus: **distribution** (GDP per capita, life expectancy) and **ranking** (inflation)
+- Methods: Python (pandas, matplotlib) rendered with Quarto [@quarto_docs]
+- Source attribution: WDI [@worldbank_wdi]
+
+---
+
+## Data Setup
+```{python}
+import pandas as pd
+df = pd.read_csv("wdi.csv")
+df.columns = df.columns.str.lower()
+print(f"Rows: {len(df)}, Columns: {len(df.columns)}")
+```
+
+## GDP per Capita — Distribution
+```{python}
+#| fig-cap: "Distribution of GDP per capita across countries (2022)."
+import matplotlib.pyplot as plt
+gdp_vals = df["gdp_per_capita"].dropna()
+fig, ax = plt.subplots(figsize=(7,4))
+ax.hist(gdp_vals, bins=30)
+ax.set_title("GDP per Capita (2022): Distribution")
+ax.set_xlabel("GDP per Capita (US$)")
+ax.set_ylabel("Number of Countries")
+plt.tight_layout()
+```
+Notes: 
+Right-skewed distribution with a long upper tail.
+
+## Life Expectancy — Distribution
+```{python}
+#| fig-cap: "Distribution of life expectancy across countries (2022)."
+life_vals = df["life_expectancy"].dropna()
+fig, ax = plt.subplots(figsize=(7,4))
+ax.hist(life_vals, bins=20)
+ax.set_title("Life Expectancy (2022): Distribution")
+ax.set_xlabel("Life Expectancy (years)")
+ax.set_ylabel("Number of Countries")
+plt.tight_layout()
+```
+Notes: 
+Most countries cluster around the low-to-mid 70s.
+
+## Inflation — Ranking (Top 15 by Population)
+```{python}
+#| fig-cap: "Inflation rate (annual %, 2022) — 15 most populous countries."
+pop_col = "total_population"
+subset = df[["country","inflation_rate", pop_col]].dropna()
+top15 = subset.sort_values(pop_col, ascending=False).head(15)
+top15_sorted = top15.sort_values("inflation_rate", ascending=False)
+
+import matplotlib.pyplot as plt
+fig, ax = plt.subplots(figsize=(7,4))
+ax.barh(top15_sorted["country"], top15_sorted["inflation_rate"])
+ax.invert_yaxis()
+ax.set_title("Inflation (2022): Top 15 by Population")
+ax.set_xlabel("Inflation rate (annual %)")
+ax.set_ylabel("Country")
+plt.tight_layout()
+```
+Notes.
+Wide spread across major economies.
+
+
+## Key Takeaways
+
+- GDP per capita: highly right-skewed distribution (few very high-income countries).
+
+- Life expectancy: tighter spread around ~70–75 years.
+
+- Inflation: substantial variation among the most populous economies.
+
+## Reference
+
+- Data: World Bank WDI [@worldbank_wdi]
+
+- Built with Quarto (Reveal.js) [@quarto_docs]
