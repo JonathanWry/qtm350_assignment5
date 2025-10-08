@@ -6,7 +6,7 @@ project:
     - slides.qmd
 
 execute:
-  echo: false   # hides code in final output
+  echo: false 
   warning: false
   message: false
 
