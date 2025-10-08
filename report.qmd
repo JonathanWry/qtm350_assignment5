@@ -28,7 +28,7 @@ df = pd.read_csv("wdi.csv")
 df.columns = df.columns.str.lower()
 ```
 
-### 1️⃣ GDP per capita — Distribution
+### 1 GDP per capita — Distribution
 ```{python}
 import pandas as pd, matplotlib.pyplot as plt
 gdp_vals = df["gdp_per_capita"].dropna()
@@ -55,7 +55,7 @@ As shown in Figure @fig-gdp-hist, the distribution of GDP per capita in 2022 is 
 
 ---
 
-### 2️⃣ Life expectancy — Distribution
+### 2 Life expectancy — Distribution
 ```{python}
 life_vals  = df["life_expectancy"].dropna()
 life_mean  = life_vals.mean()
@@ -82,7 +82,7 @@ Figure @fig-life-hist shows that life expectancy is centered around the mid-70s.
 
 ---
 
-### 3️⃣ Inflation rate — Ranking
+### 3 Inflation rate — Ranking
 
 ```{python}
 pop_col = "total_population"
@@ -120,7 +120,7 @@ Figure @fig-life-hist shows that life expectancy is centered around the mid-70s.
 
 ---
 
-### 4️⃣ Summary statistics table
+### 4 Summary statistics table
 
 ```{python}
 #| label: tbl-summary
