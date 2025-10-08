@@ -4,14 +4,14 @@ author: "Jonathan Wang"
 date: "2025-10-06"
 format:
   revealjs:
-    theme: [simple, serif]   # custom theme
-    transition: fade         # transition effect
+    theme: [simple, serif]
+    transition: fade 
     slide-number: true
     chalkboard: false
 bibliography: references.bib
 jupyter: python3
 execute:
-  echo: false                # hide code in slides too
+  echo: false 
 ---
 
 ## Overview
